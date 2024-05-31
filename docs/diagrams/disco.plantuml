@@ -1,0 +1,17 @@
+@startuml
+class DiscoDuro {
+    + DiscoDuro()
+}
+
+class Pista {
+    + Pista()
+}
+
+class Sector {
+    + Sector()
+}
+
+DiscoDuro "1" -- "1..*" Pista : contiene
+Pista "1" -- "1..*" Sector : contiene
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+class Equipo {
+    + nombre: String
+    + Equipo(nombre: String, estadio: Estadio)
+    + getNombre(): String
+    + getEstadio(): Estadio
+    + agregarJugador(jugador: Jugador): void
+    + getJugadores(): List<Jugador>
+}
+
+class Jugador {
+    + nombre: String
+    + posicion: String
+    + Jugador(nombre: String, posicion: String)
+    + getNombre(): String
+    + getPosicion(): String
+}
+
+class Estadio {
+    + nombre: String
+    + capacidad: int
+    + Estadio(nombre: String, capacidad: int)
+    + getNombre(): String
+    + getCapacidad(): int
+}
+
+Equipo "1" -- "1..*" Jugador : formado por
+Equipo "1" -- "1" Estadio : homeclub
+@enduml

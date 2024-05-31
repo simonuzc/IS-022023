@@ -1,0 +1,32 @@
+@startuml
+class Laboratorio {
+    + nombre: String
+    + Laboratorio(nombre: String)
+    + getNombre(): String
+    + agregarEquipo(equipo: Equipo): void
+    + getEquipos(): List<Equipo>
+}
+
+class LaboratorioNuclear {
+    + LaboratorioNuclear(nombre: String)
+    + agregarEquipoNuclear(equipoNuclear: EquipoNuclear): void
+    + getEquiposNucleares(): List<EquipoNuclear>
+}
+
+class Equipo {
+    + nombre: String
+    + Equipo(nombre: String)
+    + getNombre(): String
+}
+
+class EquipoNuclear {
+    + nombre: String
+    + EquipoNuclear(nombre: String)
+    + getNombre(): String
+}
+
+Laboratorio "1" -- "0..*" Equipo : tiene
+Laboratorio <|-- LaboratorioNuclear
+LaboratorioNuclear "1" -- "0..*" EquipoNuclear : tiene
+
+@enduml

@@ -1,0 +1,21 @@
+@startuml
+class FP {
+    - float ufc
+    - float tcf
+    + FP(float ufc, float tcf)
+    + calcularFP(): float
+    + getUFC(): float
+    + getTCF(): float
+}
+
+class SubfactorComplejidadTecnica {
+    - String nombre
+    - float valoracion
+    + SubfactorComplejidadTecnica(String nombre, float valoracion)
+    + getNombre(): String
+    + getValoracion(): float
+}
+
+FP "2" -- "1" SubfactorComplejidadTecnica : utiliza
+
+@enduml

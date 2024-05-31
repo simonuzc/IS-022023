@@ -1,0 +1,54 @@
+@startuml
+class DocumentoGrafico {
+    - String nombre
+    + DocumentoGrafico(String nombre)
+    + getNombre(): String
+}
+
+class Hoja {
+    - int numero
+    + Hoja(int numero)
+    + getNumero(): int
+}
+
+abstract class ObjetoDibujo {
+    + abstract dibujar(): void
+}
+
+class Texto {
+    - String contenido
+    + Texto(String contenido)
+    + dibujar(): void
+}
+
+abstract class Figura2D {
+    + abstract dibujar(): void
+}
+
+class Circulo {
+    - float radio
+    + Circulo(float radio)
+    + dibujar(): void
+}
+
+class Cuadrado {
+    - float lado
+    + Cuadrado(float lado)
+    + dibujar(): void
+}
+
+class Grupo {
+    + List<ObjetoDibujo> miembros
+    + Grupo(ObjetoDibujo[] miembros)
+    + agregarMiembro(objeto: ObjetoDibujo): void
+    + dibujar(): void
+}
+
+DocumentoGrafico "1" -- "1..*" Hoja : compuesto de
+Hoja "1" -- "0..*" ObjetoDibujo : contiene
+ObjetoDibujo <|-- Texto
+ObjetoDibujo <|-- Figura2D
+Figura2D <|-- Circulo
+Figura2D <|-- Cuadrado
+ObjetoDibujo <|-- Grupo : miembro de
+@enduml

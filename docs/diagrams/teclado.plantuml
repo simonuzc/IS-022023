@@ -1,0 +1,16 @@
+@startuml
+class Teclado {
+    - int cantidadTeclas
+    + Teclado()
+    + getCantidadTeclas(): int
+}
+
+class Tecla {
+    - String nombre
+    + Tecla(String nombre)
+    + getNombre(): String
+}
+
+Teclado "1" -- "105..*" Tecla : tiene
+
+@enduml

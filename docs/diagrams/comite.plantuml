@@ -1,0 +1,24 @@
+@startuml
+class Persona {
+    + nombre: String
+    + Persona(nombre: String)
+    + getNombre(): String
+}
+
+class Comité {
+    + nombre: String
+    + Comité(nombre: String, coordinador: Persona)
+    + getNombre(): String
+    + getCoordinador(): Persona
+    + agregarMiembro(miembro: Persona): void
+    + getMiembros(): List<Persona>
+}
+
+class Coordinador {
+    + getComitésCoordinados(): List<Comité>
+}
+
+Persona "0..*" -- "2..*" Comité : pertenece a
+Comité "1" -- "1" Persona : coordinado por
+Persona <|-- Coordinador
+@enduml

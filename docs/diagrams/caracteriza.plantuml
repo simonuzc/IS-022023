@@ -1,0 +1,25 @@
+@startuml
+class Criterio {
+    + nombre: String
+    + Criterio(nombre: String)
+    + getNombre(): String
+}
+
+class Caracterizacion {
+    + nombre: String
+    + Caracterizacion(nombre: String)
+    + getNombre(): String
+    + agregarCriterio(criterio: Criterio): void
+    + getCriterios(): List<Criterio>
+}
+
+class ElementoClasificado {
+    + nombre: String
+    + ElementoClasificado(nombre: String, caracterizacion: Caracterizacion)
+    + getNombre(): String
+    + getCaracterizacion(): Caracterizacion
+}
+
+Caracterizacion "1" -- "1..*" Criterio : fundamentada en
+ElementoClasificado "1" -- "1" Caracterizacion : generada a partir de
+@enduml

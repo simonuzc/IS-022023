@@ -1,0 +1,31 @@
+@startuml
+class Persona {
+    - String nombre
+    - String apellido
+    + Persona(String nombre, String apellido)
+    + getNombre(): String
+    + getApellido(): String
+}
+
+class Estudiante {
+    - int matricula
+    + Estudiante(String nombre, String apellido, int matricula)
+    + getMatricula(): int
+}
+
+class Profesor {
+    - String departamento
+    + Profesor(String nombre, String apellido, String departamento)
+    + getDepartamento(): String
+}
+
+class Empleado {
+    - String puesto
+    + Empleado(String nombre, String apellido, String puesto)
+    + getPuesto(): String
+}
+
+Persona <|-- Estudiante
+Persona <|-- Profesor
+Persona <|-- Empleado
+@enduml

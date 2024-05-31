@@ -1,0 +1,21 @@
+@startuml
+class Poligono {
+    + getNumeroLados(): int
+}
+
+class Triangulo {
+    + Triangulo(Lado lado1, Lado lado2, Lado lado3)
+    + getLado1(): Lado
+    + getLado2(): Lado
+    + getLado3(): Lado
+}
+
+class Lado {
+    + Lado(float longitud)
+    + getLongitud(): float
+}
+
+Poligono <|-- Triangulo
+Triangulo "1" -- "3" Lado : formado por
+
+@enduml
