@@ -1,0 +1,24 @@
+@startuml
+
+class Punto {
+    + cord_x: int
+    + cord_y: int
+
+    + getX(): int
+    + getY(): int
+    + setX(int x): void
+    + setY(int y): void
+}
+
+class Poligono {
+    + puntos: List<Punto>
+    + numeroDePuntos: int
+
+    + agregarPunto(Punto punto): void
+    + calcularArea(): double
+    + dibujar(): void
+}
+
+Poligono *-- Punto : contiene
+
+@enduml

@@ -1,0 +1,39 @@
+@startuml
+
+object PuntoA {
+    cord_x = 0
+    cord_y = 0
+}
+
+object PuntoB {
+    cord_x = 10
+    cord_y = 0
+}
+
+object PuntoC {
+    cord_x = 5
+    cord_y = 5
+}
+
+object PuntoD {
+    cord_x = 10
+    cord_y = 10
+}
+
+object Triangulo1 {
+    puntos = {PuntoA, PuntoB, PuntoC}
+}
+
+object Triangulo2 {
+    puntos = {PuntoB, PuntoC, PuntoD}
+}
+
+Triangulo1 --> PuntoA
+Triangulo1 --> PuntoB
+Triangulo1 --> PuntoC
+
+Triangulo2 --> PuntoB
+Triangulo2 --> PuntoC
+Triangulo2 --> PuntoD
+
+@enduml

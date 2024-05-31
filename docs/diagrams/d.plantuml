@@ -1,0 +1,64 @@
+@startuml
+
+object x {
+    nombre = "x"
+}
+
+object y {
+    nombre = "y"
+}
+
+object Const2 {
+    valor = 2
+}
+
+object Const3 {
+    valor = 3
+}
+
+object Exp1 {
+    operador_binario = "+"
+    1er_op = x
+    2do_op = Exp2
+}
+
+object Exp2 {
+    operador_binario = "/"
+    1er_op = y
+    2do_op = Const2
+}
+
+object Exp3 {
+    operador_binario = "/"
+    1er_op = x
+    2do_op = Const3
+}
+
+object Exp4 {
+    operador_binario = "+"
+    1er_op = Exp3
+    2do_op = y
+}
+
+object ExpFinal {
+    operador_binario = "/"
+    1er_op = Exp1
+    2do_op = Exp4
+}
+
+ExpFinal --> Exp1
+ExpFinal --> Exp4
+
+Exp1 --> x
+Exp1 --> Exp2
+
+Exp2 --> y
+Exp2 --> Const2
+
+Exp4 --> Exp3
+Exp4 --> y
+
+Exp3 --> x
+Exp3 --> Const3
+
+@enduml
