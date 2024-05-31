@@ -1,0 +1,96 @@
+@startuml
+object EntrenadorVenezuela {
+    nombre = "Luis Pérez"
+    telefono = "+584121234567"
+    direccion = "Caracas, Venezuela"
+    nivelAcreditacion = "A"
+    añosExperiencia = 15
+}
+
+object EntrenadorColombia {
+    nombre = "Juan Gómez"
+    telefono = "+573012345678"
+    direccion = "Bogotá, Colombia"
+    nivelAcreditacion = "B"
+    añosExperiencia = 10
+}
+
+object JugadorVenezuela1 {
+    nombre = "Carlos Ruiz"
+    telefono = "+584121234568"
+    direccion = "Maracaibo, Venezuela"
+    numero = 1
+    posicion = "Armador"
+}
+
+object JugadorVenezuela2 {
+    nombre = "Pedro López"
+    telefono = "+584121234569"
+    direccion = "Valencia, Venezuela"
+    numero = 2
+    posicion = "Atacante"
+}
+
+object CapitanVenezuela {
+    nombre = "José Fernández"
+    telefono = "+584121234570"
+    direccion = "Caracas, Venezuela"
+    numero = 3
+    posicion = "Libero"
+}
+
+object JugadorColombia1 {
+    nombre = "Mario Martínez"
+    telefono = "+573012345679"
+    direccion = "Medellín, Colombia"
+    numero = 4
+    posicion = "Armador"
+}
+
+object JugadorColombia2 {
+    nombre = "Diego Torres"
+    telefono = "+573012345680"
+    direccion = "Cali, Colombia"
+    numero = 5
+    posicion = "Atacante"
+}
+
+object CapitanColombia {
+    nombre = "Felipe Rojas"
+    telefono = "+573012345681"
+    direccion = "Bogotá, Colombia"
+    numero = 6
+    posicion = "Libero"
+}
+
+object EquipoVenezuela {
+    nombre = "Venezuela"
+    registro = "VEN001"
+    capitan = CapitanVenezuela
+}
+
+object EquipoColombia {
+    nombre = "Colombia"
+    registro = "COL001"
+    capitan = CapitanColombia
+}
+
+object Juego1 {
+    localidad = "Santiago, Chile"
+    puntuacion = "3-2"
+}
+
+EquipoVenezuela : contiene -> JugadorVenezuela1
+EquipoVenezuela : contiene -> JugadorVenezuela2
+EquipoVenezuela : contiene -> CapitanVenezuela
+EquipoVenezuela : tiene -> EntrenadorVenezuela
+
+EquipoColombia : contiene -> JugadorColombia1
+EquipoColombia : contiene -> JugadorColombia2
+EquipoColombia : contiene -> CapitanColombia
+EquipoColombia : tiene -> EntrenadorColombia
+
+Juego1 : participa -> EquipoVenezuela
+Juego1 : participa -> EquipoColombia
+
+@enduml
