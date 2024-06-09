@@ -1,0 +1,46 @@
+@startuml
+[*] --> EncargarProducto
+
+state EncargarProducto {
+  [*] --> Encargar
+  Encargar --> [*] : Pedido Colocado
+}
+
+EncargarProducto --> Pagar : Pedido Colocado
+
+state Pagar {
+  [*] --> ValidarPedido
+  ValidarPedido --> CobrarPago
+  CobrarPago --> [*] : Pedido Pagado por Adelantado
+}
+
+Pagar --> ObtenerProducto : Pedido Pagado por Adelantado
+
+state ObtenerProducto {
+  [*] --> Obtener
+  Obtener --> Urgente : ¿Urgente? [sí]
+  Obtener --> Ordinario : ¿Urgente? [no]
+
+  state Urgente {
+    [*] --> EnviarUrgente
+    EnviarUrgente --> [*] : Pedido Realizado
+  }
+
+  state Ordinario {
+    [*] --> EnviarOrdinario
+    EnviarOrdinario --> [*] : Pedido Realizado
+  }
+}
+
+ObtenerProducto --> DarCervezas : Pedido Realizado
+
+state DarCervezas {
+  [*] --> Dar
+  Dar --> ListaSatisfechos
+  Dar --> EnviarRecibo
+  ListaSatisfechos --> [*]
+  EnviarRecibo --> [*]
+}
+
+DarCervezas --> [*]
+@enduml
